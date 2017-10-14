@@ -1,11 +1,18 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      New Trip!
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-list>
 
+      <ion-item>
+        <ion-input type="text" placeholder="Location" name="trip_name" [(ngModel)]="trip_name"></ion-input>
+      </ion-item>
+      <button ion-button block (click)="newTrip()">Submit</button>
+
+    </ion-list>
 </ion-content>
