@@ -8,10 +8,39 @@
 
 <ion-content>
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
+    <ion-list-header *ngIf="lat">Current Location is: {{lat}}</ion-list-header>
     <ion-item>
       <ion-icon name="ionic" item-start></ion-icon>
       @ionicframework
     </ion-item>
   </ion-list>
+
+  <button ion-button right (click)="dropMarkerCurrent()">Drop Marker on Current Location</button>
+
+
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" (mapClick)="mapCLicked($event)" *ngIf="lat">
+    <agm-polyline [strokeColor]="'blue'">
+      <agm-polyline-point *ngFor="let m of markers; let i = index"
+        [latitude]="m.latitude"
+        [longitude]="m.longitude">
+
+        <agm-marker
+          [latitude]="m.latitude"
+          [longitude]="m.longitude">
+
+          <agm-info-window>
+            <h4 id="maker_location_name">{{m.location_name}}</h4>
+            <button class="btn btn-info" (click)="load_view_info(m)">Learn More</button>
+            <button class="btn btn-success" (click)="load_add_info(m)" *ngIf="user_id == m._user">Add Info</button>
+            <button class="btn btn-danger" (click)="removeMarker(m)" *ngIf="user_id == m._user">Delete</button>
+            <h6 class="text-info">Day Number: {{m.day_number}}</h6>
+          </agm-info-window>
+
+        </agm-marker>
+
+      </agm-polyline-point>
+
+    </agm-polyline>
+  </agm-map>
+
 </ion-content>

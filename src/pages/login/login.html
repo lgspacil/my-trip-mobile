@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+
+      <ion-item>
+        <ion-label fixed>Email</ion-label>
+        <ion-input type="text"
+        class="form-control"
+        name="email"
+        required
+        minlength="6"
+        [(ngModel)]="user_obj.email"
+        #email="ngModel"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Password</ion-label>
+        <ion-input type="password"
+        class="form-control"
+        name="password"
+        required
+        minlength="4"
+        [(ngModel)]="user_obj.password"
+        #password="ngModel"></ion-input>
+      </ion-item>
+
+    </ion-list>
+    <button ion-button block>Login</button>
+
+</ion-content>

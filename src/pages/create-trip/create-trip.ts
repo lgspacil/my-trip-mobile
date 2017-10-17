@@ -4,10 +4,10 @@ import { NewTripPage } from '../new-trip/new-trip';
 
 
 @Component({
-  selector: 'page-about',
-  templateUrl: 'about.html'
+  selector: 'page-create-trip',
+  templateUrl: 'create-trip.html'
 })
-export class AboutPage {
+export class CreateTripPage {
 
   trip_name: any;
 
