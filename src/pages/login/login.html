@@ -4,12 +4,13 @@
       Login
     </ion-title>
   </ion-navbar>
+
 </ion-header>
 
+
 <ion-content>
-
-  <ion-list>
-
+  <form #logForm='ngForm'>
+  <ion-list >
       <ion-item>
         <ion-label fixed>Email</ion-label>
         <ion-input type="text"
@@ -20,6 +21,13 @@
         [(ngModel)]="user_obj.email"
         #email="ngModel"></ion-input>
       </ion-item>
+
+      <ion-card class="red" *ngIf='email.errors && (email.touched)'>
+          <ion-card-content>
+            <p *ngIf='email.errors.required'>Email is required</p>
+            <p *ngIf='email.errors.minlength'>Email must contain at least 6 characters.</p>
+          </ion-card-content>
+      </ion-card>
 
       <ion-item>
         <ion-label fixed>Password</ion-label>
@@ -32,7 +40,26 @@
         #password="ngModel"></ion-input>
       </ion-item>
 
+      <ion-card class="red" *ngIf='password.errors && (password.touched)'>
+        <ion-card-content>
+          <p *ngIf='password.errors.required'>Password is required</p>
+          <p *ngIf='password.errors.minlength'>Password must be at least 4 characters.</p>
+        </ion-card-content>
+      </ion-card>
+
+
     </ion-list>
-    <button ion-button block>Login</button>
+    <button ion-button block [disabled]="!logForm.valid" type="submit" (click)="userLogin()">Login</button>
+  </form>
+
+    <ion-card *ngIf="error">
+      <ion-card-content>
+        <p class="red">{{error}}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-footer>
+      <button ion-button block (click)="goToRegister()" color="secondary">Not A User? Register Here!</button>
+    </ion-footer>
 
 </ion-content>

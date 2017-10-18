@@ -16,6 +16,8 @@ export class MyTripService {
     })
   }
 
+
+
   registerUser(user_obj){
     return this._http.post("http://localhost:8000/add_user", user_obj).map(data => data.json()).toPromise()
    }

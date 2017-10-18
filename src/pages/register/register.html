@@ -1,0 +1,102 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        Register
+      </ion-title>
+    </ion-navbar>
+
+  </ion-header>
+
+
+  <ion-content>
+    <form #regForm='ngForm'>
+    <ion-list >
+        <ion-item>
+          <ion-label fixed>Email</ion-label>
+          <ion-input type="text"
+          type="text"
+          class="form-control"
+          name="email"
+          required
+          minlength="6"
+          [(ngModel)]="user_obj.email"
+          #email = 'ngModel'></ion-input>
+        </ion-item>
+
+        <ion-card class="red" *ngIf='email.errors && (email.touched)'>
+            <ion-card-content>
+              <p *ngIf='email.errors.required'>Email is required</p>
+              <p *ngIf='email.errors.minlength'>Email must contain at least 6 characters.</p>
+            </ion-card-content>
+        </ion-card>
+
+
+        <ion-item>
+          <ion-label fixed>User Name</ion-label>
+          <ion-input type="text"
+          class="form-control"
+          name="username"
+          required
+          minlength="3"
+          [(ngModel)]="user_obj.username"
+          #username='ngModel'></ion-input>
+        </ion-item>
+
+        <ion-card class="red" *ngIf='username.errors && (username.touched)'>
+            <ion-card-content>
+                <p *ngIf='username.errors.required'>Username is required</p>
+                <p *ngIf='username.errors.minlength'>username must contain at least 3 characters.</p>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-item>
+          <ion-label fixed>Password</ion-label>
+          <ion-input type="password"
+          class="form-control"
+          name="password"
+          required
+          minlength="4"
+          [(ngModel)]="user_obj.password"
+          #password="ngModel"></ion-input>
+        </ion-item>
+
+        <ion-card class="red" *ngIf='password.errors && (password.touched)'>
+          <ion-card-content>
+            <p *ngIf='password.errors.required'>Password is required</p>
+            <p *ngIf='password.errors.minlength'>Password must be at least 4 characters.</p>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-item>
+            <ion-label fixed>Confirm Password</ion-label>
+            <ion-input type="password"
+            class="form-control"
+            name="confirm_password"
+            required
+            minlength="4"
+            [(ngModel)]="user_obj.confirm_password"
+            #confirm_password="ngModel"></ion-input>
+          </ion-item>
+
+          <ion-card class="red" *ngIf='user_obj.confirm_password != user_obj.password && (confirm_password.touched)'>
+            <ion-card-content>
+                <p>The passwords do not match!</p>
+            </ion-card-content>
+          </ion-card>
+
+
+      </ion-list>
+      <button [disabled]="!regForm.valid || user_obj.confirm_password != user_obj.password"  type="submit" block ion-button (click)="registerUser()">Register</button>
+    </form>
+
+      <ion-card *ngIf="errors">
+        <ion-card-content>
+          <p class="red">{{error}}</p>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-footer>
+        <button ion-button block (click)="goToLogin()" color="secondary">Already A User? Go to Login Page!</button>
+      </ion-footer>
+
+  </ion-content>
