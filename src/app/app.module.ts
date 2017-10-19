@@ -9,24 +9,25 @@ import { IonicStorageModule } from '@ionic/storage'
 import { HttpModule } from '@angular/http';
 
 import { CreateTripPage } from '../pages/create-trip/create-trip';
-import { ContactPage } from '../pages/contact/contact';
+import { AllTripsPage } from '../pages/all-trips/all-trips';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-import { NewTripPage } from '../pages/new-trip/new-trip';
+import { MapPage } from '../pages/map/map';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+
 @NgModule({
   declarations: [
     MyApp,
     CreateTripPage,
-    ContactPage,
+    AllTripsPage,
     HomePage,
     TabsPage,
-    NewTripPage,
+    MapPage,
     LoginPage,
     RegisterPage
   ],
@@ -43,10 +44,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     CreateTripPage,
-    ContactPage,
+    AllTripsPage,
     HomePage,
     TabsPage,
-    NewTripPage,
+    MapPage,
     LoginPage,
     RegisterPage
   ],

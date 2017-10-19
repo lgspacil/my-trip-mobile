@@ -8,11 +8,17 @@
 
 <ion-content padding>
   <ion-list>
-
+      <p>{{ new_trip_obj | json }}</p>
       <ion-item>
-        <ion-input type="text" placeholder="Location" name="trip_name" [(ngModel)]="trip_name"></ion-input>
+        <ion-input type="text" placeholder="Location" name="trip_name" [(ngModel)]="new_trip_obj.trip_name"></ion-input>
       </ion-item>
-      <button ion-button block (click)="newTrip()">Submit</button>
+      <button ion-button block (click)="addedNewTrip()">Submit</button>
 
     </ion-list>
+
+  <ion-card *ngIf='error'>
+    <ion-card-content>
+      <p>{{error}}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

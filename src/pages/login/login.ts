@@ -43,6 +43,11 @@ export class LoginPage {
             this.storage.set('user_name', data.username);
             this.storage.set('user_id', data._id);
 
+
+            //after they put all their info it should be cleared incase they come back to the login page
+            this.user_obj.email = '';
+            this.user_obj.password = '';
+
             // this._router.navigate(['/create_continue']);
             this.navCtrl.push(TabsPage);
         }else{
@@ -82,18 +87,14 @@ export class LoginPage {
       .catch((err) =>{
         console.log("unable to get the user_name from storage ", err)
       })
-
-
-
-
   }
 
   callback(){
-    if(this.has_user_id != '' && this.has_user_name != ''){
+    if(this.has_user_id != null && this.has_user_name != null){
       console.log("the user has logged in before and not logged out, route them to main page")
       this.navCtrl.push(TabsPage);
     }else{
-      console.log("something is not working")
+      console.log("the user has not logged in so do not route them")
     }
   }
 

@@ -4,10 +4,10 @@ import { Geolocation } from '@ionic-native/geolocation';
 
 
 @Component({
-  selector: 'page-new-trip',
-  templateUrl: 'new-trip.html'
+  selector: 'page-map',
+  templateUrl: 'map.html'
 })
-export class NewTripPage {
+export class MapPage {
 
   trip_name: any;
   lat: number;
@@ -23,7 +23,7 @@ export class NewTripPage {
     public params: NavParams,
     private geolocation: Geolocation,
     public loadingCtrl: LoadingController) {
-    this.trip_name = this.params.get('trip_name');
+    // this.trip_name = this.params.get('trip_name');
   }
 
 
