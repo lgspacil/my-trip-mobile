@@ -8,6 +8,7 @@ import { MyTripService } from "../services/mytrip.service";
 import { IonicStorageModule } from '@ionic/storage'
 import { HttpModule } from '@angular/http';
 
+
 import { CreateTripPage } from '../pages/create-trip/create-trip';
 import { AllTripsPage } from '../pages/all-trips/all-trips';
 import { HomePage } from '../pages/home/home';
@@ -15,6 +16,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { MapPage } from '../pages/map/map';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { ViewInfoPage } from '../pages/view-info/view-info';
+import { AddInfoPage } from '../pages/add-info/add-info';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,7 +32,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     MapPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    ViewInfoPage,
+    AddInfoPage
   ],
   imports: [
     HttpModule,
@@ -49,7 +54,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     MapPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    ViewInfoPage,
+    AddInfoPage
   ],
   providers: [
     Geolocation,

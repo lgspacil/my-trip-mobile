@@ -1,24 +1,18 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      New Trip
+        {{trip_name}}
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header *ngIf="lat">Current Location is: {{lat}}</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
-
-  <button ion-button right (click)="dropMarkerCurrent()">Drop Marker on Current Location</button>
 
 
-  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" (mapClick)="mapCLicked($event)" *ngIf="lat">
+  <button ion-button block (click)="dropMarkerCurrent()">Drop Marker on Current Location</button>
+
+
+  <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" (mapClick)="mapCLicked($event)" *ngIf="latitude">
     <agm-polyline [strokeColor]="'blue'">
       <agm-polyline-point *ngFor="let m of markers; let i = index"
         [latitude]="m.latitude"

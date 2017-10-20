@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+          Add Info to Location
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content>
+      <ion-list>
+
+            <ion-item>
+              <ion-label floating>Location Name</ion-label>
+              <ion-input type="text" name="location_name" [(ngModel)]="updateMarker.location_name"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label floating>A bit about this location..</ion-label>
+              <ion-textarea type="text" name="content" [(ngModel)]="updateMarker.content"></ion-textarea>
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>Price</ion-label>
+                <ion-input type="number" name="price" [(ngModel)]="updateMarker.price"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label floating>Marker Image</ion-label>
+                  <ion-select name="img_url" [(ngModel)]="updateMarker.img_url">
+                      <ion-option value="https://maps.google.ca/intl/en_ca/mapfiles/icon_green.png">General Point</ion-option>
+                      <ion-option value="http://i.imgur.com/0ZTQbec.png">Airport</ion-option>
+                      <ion-option value="http://i.imgur.com/0GWhwn8.png">Camping</ion-option>
+                      <ion-option value="http://i.imgur.com/E23PQjk.png">Cool Spot!</ion-option>
+                      <ion-option value="http://i.imgur.com/3JcS82f.png">Food</ion-option>
+                      <ion-option value="http://i.imgur.com/D28Bgeb.png">Gas Station</ion-option>
+                      <ion-option value="http://i.imgur.com/1xY4O6T.png">Grocery Store</ion-option>
+                      <ion-option value="http://i.imgur.com/jH6JLrm.png">Hiking</ion-option>
+                      <ion-option value="http://i.imgur.com/Hkg6fMA.png">Hotel</ion-option>
+                      <ion-option value="http://i.imgur.com/fNFwJwJ.png">Night Life</ion-option>
+                      <ion-option value="http://i.imgur.com/VAZu2wT.png">Shopping</ion-option>
+                  </ion-select>
+              </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Image Upload</ion-label>
+                    <ion-input type="text" name="content" [(ngModel)]="updateMarker.content"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label floating>Day Number</ion-label>
+                    <ion-input type="number" name="day_number" [(ngModel)]="updateMarker.day_number"></ion-input>
+                </ion-item>
+
+                <button ion-button block (click)="submitUpdatedChanges()">Submit</button>
+          </ion-list>
+    <button ion-button block (click)="cancel()">Cancel</button>
+  </ion-content>

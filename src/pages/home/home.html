@@ -13,17 +13,20 @@
       <h3>Add New Trip!</h3>
     </button>
 
-    <ion-card (press)="presentActionSheet()">
-      <img src="http://www.toureiffel.paris/templates/tour_eiffel/img/home_360.jpg"/>
-      <div class="card-title">Paris</div>
-      <div class="card-subtitle">41 Listings</div>
-    </ion-card>
+    <div *ngIf="selected_users_trips.length > 0">
+      <ion-card (press)="presentActionSheet(trip._id)" (click)="continueTrip(trip._id)" *ngFor="let trip of selected_users_trips">
+        <img src="http://www.toureiffel.paris/templates/tour_eiffel/img/home_360.jpg"/>
+        <div class="card-title">{{trip.trip_name}}</div>
+        <div class="card-subtitle">41 Listings</div>
+      </ion-card>
+    </div>
 
-    <ion-card>
+
+    <!-- <ion-card>
       <img src="http://www.telegraph.co.uk/content/dam/insurance/2016/04/06/amsterdam-xlarge.jpg"/>
       <div class="card-title">Amsterdam</div>
       <div class="card-subtitle">64 Listings</div>
-    </ion-card>
+    </ion-card> -->
 
 
   </ion-content>

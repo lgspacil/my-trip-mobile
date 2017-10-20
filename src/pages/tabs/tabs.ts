@@ -23,7 +23,9 @@ export class TabsPage {
 
     this.storage.remove('user_name').then((data) =>{
       this.storage.remove('user_id').then((data) =>{
-        console.log("was able to remove the storage info on logout")
+        this.storage.remove('trip_id').then((data) =>{
+          console.log("was able to remove the storage info on logout")
+        })
 
         //now I want to go back to the rootpage
         this.navCtrl.popToRoot()
