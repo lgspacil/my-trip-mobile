@@ -22,6 +22,10 @@ import { AddInfoPage } from '../pages/add-info/add-info';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+//images
+import { Camera } from '@ionic-native/camera';
+import { PicturePage } from '../pages/picture/picture';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +38,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     RegisterPage,
     ViewInfoPage,
-    AddInfoPage
+    AddInfoPage,
+    //images
+    PicturePage
   ],
   imports: [
     HttpModule,
@@ -56,9 +62,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     RegisterPage,
     ViewInfoPage,
-    AddInfoPage
+    AddInfoPage,
+    //images
+    PicturePage
   ],
   providers: [
+    //images
+    Camera,
+    //end images
     Geolocation,
     StatusBar,
     SplashScreen,

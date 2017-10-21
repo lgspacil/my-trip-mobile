@@ -8,8 +8,18 @@ import { NavParams } from 'ionic-angular';
 })
 export class ViewInfoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  displayMarkerInfo:any;
 
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.displayMarkerInfo = this.navParams.get('marker_info');
+  }
+
+  ionViewWillEnter(){
+    console.log(this.displayMarkerInfo)
+  }
+
+  back(){
+    this.navCtrl.pop()
   }
 
 }

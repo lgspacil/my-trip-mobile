@@ -7,10 +7,16 @@
   </ion-header>
 
   <ion-content>
-    <ion-list>
-
-      <ion-item>
-        View Info
-      </ion-item>
-    </ion-list>
+    <ion-card>
+      <img src={{displayMarkerInfo.images[0]}}/>
+      <ion-card-content>
+        <ion-card-title>
+          {{displayMarkerInfo.location_name}}
+          </ion-card-title>
+        <p>
+          {{displayMarkerInfo.content}}
+        </p>
+      </ion-card-content>
+    </ion-card>
+    <button ion-button block (click)="back()">back</button>
   </ion-content>

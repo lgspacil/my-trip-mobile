@@ -329,7 +329,10 @@ export class MapPage {
   }
 
   load_view_info(marker_info){
-    this.navCtrl.push(ViewInfoPage, {marker_info: marker_info});
+    // this.navCtrl.push(ViewInfoPage, {marker_info: marker_info});
+
+    const profileModal = this.modalCtrl.create(ViewInfoPage, { marker_info: marker_info });
+    profileModal.present();
   }
 
   load_add_info(marker_info){
