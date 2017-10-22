@@ -74,17 +74,22 @@ export class MapPage {
   ionViewWillEnter(){
 
     this.getUserInfoStorage();
-    this.loadCurrentLocation();
     this.presentLoading();
   }
 
   ionViewDidEnter(){
     // this.loadSpecificMarkers();
-    this.getTripNameAndUserIdFromTripId()
+    this.getTripNameAndUserIdFromTripId();
+    this.loadCurrentLocation();
   }
 
   loadCurrentLocation(){
-    this.geolocation.getCurrentPosition().then((resp) => {
+    let options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    }
+    this.geolocation.getCurrentPosition(options).then((resp) => {
       // this.latitude = resp.coords.latitude
       // this.longitude = resp.coords.longitude
 
