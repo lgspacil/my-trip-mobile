@@ -11,11 +11,15 @@ import { NavController } from 'ionic-angular';
 export class TabsPage {
 
   tab1Root = HomePage;
-  tab2Root = CreateTripPage;
+  // tab2Root = CreateTripPage;
   tab3Root = AllTripsPage;
 
   constructor(private storage: Storage, public navCtrl: NavController) {
 
+  }
+
+  addTripClick(){
+    this.navCtrl.push(CreateTripPage)
   }
 
   logoutClick(){

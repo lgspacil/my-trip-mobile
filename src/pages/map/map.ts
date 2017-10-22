@@ -85,8 +85,8 @@ export class MapPage {
 
   loadCurrentLocation(){
     this.geolocation.getCurrentPosition().then((resp) => {
-      this.latitude = resp.coords.latitude
-      this.longitude = resp.coords.longitude
+      // this.latitude = resp.coords.latitude
+      // this.longitude = resp.coords.longitude
 
       this.mylatitude = resp.coords.latitude
       this.mylongitude = resp.coords.longitude
@@ -152,14 +152,14 @@ export class MapPage {
       // this.display_obj.trip_name = data.trip_name;
 
       //if no marker was placed start in the bay area else, start at the markers last placed position
-      // if (this.markers.length == 0){
-      //   this.latitude = 32.898504;
-      //   this.longitude = -36.4194155;
-      //   this.zoom =2;
-      // }else{
+      if (this.markers.length == 0){
+        this.latitude = 32.898504;
+        this.longitude = -36.4194155;
+        this.zoom =2;
+      }else{
         this.latitude = this.markers[this.markers.length -1].latitude;
         this.longitude = this.markers[this.markers.length -1].longitude;
-      // }
+      }
 
       //add the updated informatino about the current days and money count to the DB:
       // console.log("about to enter updateTripInfo... in loadSpecificMarkers:");
@@ -340,6 +340,11 @@ export class MapPage {
 
     const profileModal = this.modalCtrl.create(AddInfoPage, { marker_info: marker_info });
     profileModal.present();
+
+    profileModal.onDidDismiss(() =>{
+      console.log("the modal dismissed so I am going to run a function")
+      this.loadSpecificMarkers();
+    })
 
   }
 

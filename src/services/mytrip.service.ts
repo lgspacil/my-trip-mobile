@@ -101,4 +101,9 @@ export class MyTripService {
      return this._http.post("http://10.0.0.31:8000/filter_trips", filter_obj).map(data =>data.json()).toPromise()
    }
 
+   update_trip_pic(trip_info){
+     console.log("in the service with trip info", trip_info)
+     return this._http.post("http://10.0.0.31:8000/update_trip_pic", trip_info).map(data =>data.json()).toPromise()
+   }
+
 }

@@ -15,9 +15,9 @@
 
     <div *ngIf="selected_users_trips.length > 0">
       <ion-card (press)="presentActionSheet(trip._id)" (click)="continueTrip(trip._id)" *ngFor="let trip of selected_users_trips">
-        <img src="http://www.toureiffel.paris/templates/tour_eiffel/img/home_360.jpg"/>
+        <img *ngIf="trip.image" src="{{trip.image}}"/>
+        <img *ngIf="!trip.image" src="http://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1493321650/opener-city-beachs-europe-BEACHCITY0417.jpg?itok=cgdwlYJ7">
         <div class="card-title">{{trip.trip_name}}</div>
-        <div class="card-subtitle">41 Listings</div>
       </ion-card>
     </div>
 

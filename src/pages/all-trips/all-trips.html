@@ -1,17 +1,33 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      All Trips
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content class="card-background-page">
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+<ion-list>
+
+  <ion-item>
+    <ion-label fixed>Length Max:</ion-label>
+    <ion-input type="number" name="trip_length" [(ngModel)]="filter_obj.trip_length"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>Price Max:</ion-label>
+    <ion-input type="number" name="trip_price" [(ngModel)]="filter_obj.trip_price"></ion-input>
+  </ion-item>
+
+  <button ion-button block (click)="filterTrips()">Filter</button>
+
+</ion-list>
+
+<ion-card *ngIf="errors" class="errors">
+    <ion-card-content>
+        <p>{{errors}}</p>
+    </ion-card-content>
+</ion-card>
+
+
+  <ion-card (click)="checkOutUsersTrip(trip._id)" *ngFor="let trip of users_trips">
+    <img *ngIf="trip.image" src="{{trip.image}}"/>
+    <img *ngIf="!trip.image" src="http://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1493321650/opener-city-beachs-europe-BEACHCITY0417.jpg?itok=cgdwlYJ7">
+    <div class="card-title">{{trip.trip_name}} Price: ${{ trip.money_count }}</div>
+    <div class="card-subtitled">Days: {{ trip.day_count }} User: {{trip.username}}</div>
+    <!-- <div class="card-subtitle">Price: ${{ trip.money_count }}</div> -->
+  </ion-card>
 </ion-content>
